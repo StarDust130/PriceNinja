@@ -4,9 +4,9 @@ import { Theme } from "./Theme";
 
 const Navbar = () => {
   return (
-    <header className="w-full h-20 flex justify-between  items-center px-20">
+    <header className="w-full h-20 flex justify-between   items-center px-5 md:px-20">
       {/* Left side logo and text */}
-      <div className="flex items-center space-x-2">
+      <div className="flex  items-center space-x-2">
         <Link className="text-2xl font-bold " href="/">
           Price<span className="text-red-500">Wise</span>
         </Link>

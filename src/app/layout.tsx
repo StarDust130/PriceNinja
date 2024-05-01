@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Jersey_15 } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+
+const jersey_15 =  Jersey_15({
+  subsets: ["latin"],
+  weight: "400"
+});
 
 export const metadata: Metadata = {
   title: "Pricewise",
   description: "Price Wise is a price comparison website.",
   icons: {
-    icon: "https://img.icons8.com/3d-fluency/94/money-mouth-face-1.png",
+    icon: "https://img.icons8.com/office/16/fire-element--v1.png",
   },
 };
+
 
 export default function RootLayout({
   children,
@@ -21,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={jersey_15.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
