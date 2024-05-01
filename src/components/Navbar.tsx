@@ -1,44 +1,29 @@
-import Image from "next/image";
+import { Heart, Search, User } from "lucide-react";
 import Link from "next/link";
-
-const navIcons = [
-  { src: "/assets/icons/search.svg", alt: "search" },
-  { src: "/assets/icons/black-heart.svg", alt: "heart" },
-  { src: "/assets/icons/user.svg", alt: "user" },
-];
 
 const Navbar = () => {
   return (
-    <header className="w-full ">
-      <nav className="nav">
-        <Link href="/" className="flex items-center gap-1">
-          <Image
-            src="/assets/icons/logo.svg"
-            width={27}
-            height={27}
-            alt="logo"
-          />
-
-          <p className="nav-logo">
-            Price<span className="text-primary">Wise</span>
-          </p>
+    <header className="w-full h-20 flex justify-between  items-center px-20">
+      {/* Left side logo and text */}
+      <div className="flex items-center space-x-2">
+        <Link className="text-2xl font-bold text-gray-800 " href="/">
+          Price<span className="text-red-500">Wise</span>
         </Link>
+      </div>
 
-        <div className="flex items-center gap-5 cursor-pointer">
-          {navIcons.map((icon) => (
-            <Image
-              key={icon.alt}
-              src={icon.src}
-              alt={icon.alt}
-              width={28}
-              height={28}
-              className="object-contain"
-            />
-          ))}
-        </div>
-      </nav>
+      {/* Right side icons */}
+      <div className="flex items-center gap-5">
+        <Link href="/">
+          <Search className="w-6 h-6 cursor-pointer text-gray-600 hover:text-gray-800" />
+        </Link>
+        <Link href="/">
+          <Heart className="w-6 h-6 cursor-pointer text-gray-600 hover:text-gray-800" />
+        </Link>
+        <Link href="/">
+          <User className="w-6 h-6 cursor-pointer text-gray-600 hover:text-gray-800" />
+        </Link>
+      </div>
     </header>
   );
 };
-
 export default Navbar;
