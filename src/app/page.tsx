@@ -1,6 +1,5 @@
 import Carousels from "@/components/Carousels";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import Searchbar from "@/components/Searchbar";
 import Image from "next/image";
 
 const Home = () => {
@@ -18,10 +17,7 @@ const Home = () => {
               <p className="text-lg text-center  mb-6">
                 Explore our exciting courses and start learning today!
               </p>
-              <div className="flex w-full mx-auto mt-20 justify-center max-w-sm  md:max-w-2xl items-center space-x-4">
-                <Input type="text" placeholder="Enter product link" />
-                <Button type="submit">Search</Button>
-              </div>
+              <Searchbar />
               <p className="text-sm text-center mt-10 ">
                 Don&apos;t have a link?{" "}
                 <a href="#" className="text-red-500 hover:underline">
@@ -37,8 +33,9 @@ const Home = () => {
             <Image
               src="/assets/icons/hand-drawn-arrow.svg"
               alt="arrow"
-              width={175}
-              height={175}
+              width={231}
+              height={222}
+              property="arrow"
               className="max-xl:hidden absolute -left-[25%] bottom-0 z-0"
             />
           </div>
