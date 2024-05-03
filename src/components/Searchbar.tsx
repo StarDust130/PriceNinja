@@ -11,9 +11,13 @@ const isValidAmazonProductURL = (url: string) => {
     const parsedURL = new URL(url);
     const hostname = parsedURL.hostname;
 
+    // Check if the hostname includes 'amazon.com', 'amazon.', 'flipkart.com', or 'flipkart.'
     if (
       hostname.includes("amazon.com") ||
       hostname.includes("amazon.") ||
+      hostname.includes("flipkart.com") ||
+      hostname.includes("flipkart.") ||
+      hostname.endsWith("flipkart") ||
       hostname.endsWith("amazon")
     ) {
       return true;
