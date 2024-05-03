@@ -65,19 +65,23 @@ export async function scrapeAmazonProduct(url: string) {
     // Construct data object.
     const data = {
       url,
+      currency: currency || "$",
+      image: imageUrls[0],
       title,
-      currentPrice: Number(currentPrice),
-      originalPrice: Number(originalPrice),
+      currentPrice: Number(currentPrice) || Number(originalPrice),
+      originalPrice: Number(originalPrice) || Number(currentPrice),
+      priceHistory: [],
       discountRate: Number(discountRate),
-      currency: currency || "₹",
-      isOutOfStock: outOfStock,
-      image: imageUrls[0] || "",
-      description,
-      priceHistrory: [],
       category: "category",
-      reviews: 100,
-      rating: 4.5,
+      reviewsCount: 100,
+      stars: 4.5,
+      isOutOfStock: outOfStock,
+      description,
+      lowestPrice: Number(currentPrice) || Number(originalPrice),
+      highestPrice: Number(originalPrice) || Number(currentPrice),
+      averagePrice: Number(currentPrice) || Number(originalPrice),
     };
+
 
     console.log(data);
 
