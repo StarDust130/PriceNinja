@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 
 interface Props {
@@ -10,13 +8,15 @@ interface Props {
 
 const PriceInfoCard = ({ title, iconSrc, value }: Props) => {
   return (
-    <div className={`price-info_card`}>
-      <p className="text-base text-black-100">{title}</p>
+    <div
+      className={` min-w-[200px] flex flex-col gap-2 border-l-3 rounded-lg bg-gray-500 shadow-lg px-5 py-4`}
+    >
+      <p className="text-base ">{title}</p>
 
       <div className="flex gap-1">
         <Image src={iconSrc} alt={title} width={24} height={24} />
 
-        <p className="text-2xl font-bold text-secondary">{value}</p>
+        <p className="text-2xl  ">{value}</p>
       </div>
     </div>
   );

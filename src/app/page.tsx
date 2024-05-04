@@ -3,6 +3,7 @@ import ProductCard from "@/components/ProductCard";
 import Searchbar from "@/components/Searchbar";
 import { getAllProducts } from "@/lib/actions";
 import Image from "next/image";
+import Link from "next/link";
 
 const Home = async () => {
   const allProducts = await getAllProducts();
@@ -14,7 +15,7 @@ const Home = async () => {
           {/* Left Section: Introduction */}
           <div className="col-span-2 ">
             <div className="text-center md:text-left ">
-              <h4 className="text-6xl md:text-[120px] text-center font-semibold  mb-4">
+              <h4 className="text-6xl md:text-[120px] text-center font-normal  mb-4">
                 Welcome to Our Price
                 <span className="text-red-500 font-bold  animate-in">
                   Ninja
@@ -26,9 +27,9 @@ const Home = async () => {
               <Searchbar />
               <p className="text-sm text-center mt-10 ">
                 Don&apos;t have a link?{" "}
-                <a href="#" className="text-red-500 hover:underline">
+                <Link href="/products" className="text-red-500 hover:underline">
                   Explore Our Catalog
-                </a>
+                </Link>
               </p>
             </div>
           </div>
@@ -49,7 +50,7 @@ const Home = async () => {
       </section>
 
       <section className="mb-10">
-        <h2 className="text-center font-bold text-2xl">Trending</h2>
+        <h2 className="text-center  my-10 text-4xl">Trending</h2>
 
         <div className="flex flex-wrap gap-x-8 gap-y-16">
           {allProducts?.map((product) => (
