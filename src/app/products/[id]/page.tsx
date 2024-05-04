@@ -5,10 +5,8 @@ import { formatNumber } from "@/lib/price";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-
-import IconWithText from "@/components/IconWithText";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, CircleChevronLeft, WalletMinimal } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 
 interface Props {
   params: {
@@ -26,14 +24,14 @@ const ProductDetails = async ({ params: { id } }: Props) => {
   return (
     <>
       <div className=" flex flex-col gap-16 md:flex-wrap md:px-20 px-6 py-24">
-        <div className="flex gap-28 md:flex-row flex-col">
-          <div className="flex-grow  py-16 border border-blue-200 rounded-lg">
+        <div className="flex gap-28 w-full md:flex-row flex-col">
+          <div className=" w-full md:w-1/2  py-16  rounded-lg">
             <Image
               src={product.image}
               alt={product.title}
               width={580}
               height={400}
-              className="mx-auto"
+              className="mx-auto rounded-lg "
             />
           </div>
 
@@ -168,9 +166,11 @@ const ProductDetails = async ({ params: { id } }: Props) => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-16 text-center md:text-start ">
           <div className="flex flex-col gap-5">
-            <h3 className="text-2xl  font-normal">Product Description</h3>
+            <h3 className="text-2xl  font-normal text-center">
+              Product Description
+            </h3>
 
             <div className="flex flex-col gap-4">
               {product?.description?.split("\n")}
@@ -197,7 +197,9 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
         {similarProducts && similarProducts?.length > 0 && (
           <div className="py-14 flex flex-col gap-2 w-full">
-            <p className="text-[32px] font-normal">Similar Products</p>
+            <p className="text-[32px] font-normal text-center">
+              Similar Products
+            </p>
 
             <div className="flex flex-wrap gap-10 mt-7 w-full">
               {similarProducts.map((product) => (
