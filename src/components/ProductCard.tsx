@@ -11,15 +11,15 @@ const ProductCard = ({ product }: ProductProps) => {
     <>
       <Link
         href={`/products/${product._id}`}
-        className="block w-full md:w-72 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 mx-auto border border-gray-200 hover:border-gray-400"
+        className="block w-full md:w-72 rounded-lg overflow-hidden shadow-lg hover:shadow-xl mx-auto border border-gray-200 hover:border-gray-400 border-dashed hover:scale-105 transform transition-transform duration-300"
       >
         <div className="relative h-40 md:h-52 overflow-hidden">
           <Image
             src={product.image}
             alt={product.title}
             layout="fill"
-            objectFit="cover"
-            className="cursor-pointer hover:scale-105 transform transition-transform duration-300"
+            objectFit="fill"
+            className="cursor-pointer "
           />
         </div>
 

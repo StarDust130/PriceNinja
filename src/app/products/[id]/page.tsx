@@ -1,7 +1,13 @@
 
+interface Props {
+    params: {
+        id: string;
+    };
+    }
 
-const ProductDetails = () => {
-  return <div>ProductDetails</div>;
+const ProductDetails = ({params: {id}}: Props) => {
+
+  return <div>ProductDetails {id}</div>;
 }
 export default ProductDetails;
 
