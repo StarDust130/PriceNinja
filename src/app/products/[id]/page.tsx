@@ -6,7 +6,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft } from "lucide-react";
+import {
+  Bookmark,
+  ChevronLeft,
+  Heart,
+  
+  MessageSquareMore,
+  Share2,
+} from "lucide-react";
+import HeartIcon from "@/components/HeartIcon";
 
 interface Props {
   params: {
@@ -23,9 +31,9 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
   return (
     <>
-      <div className=" flex flex-col gap-16 md:flex-wrap md:px-20 px-6 py-24">
+      <div className=" flex flex-col gap-16 md:flex-wrap md:px-20 px-6 mt-10 mb-20">
         <div className="flex gap-28 w-full md:flex-row flex-col">
-          <div className=" w-full md:w-1/2  py-16  rounded-lg">
+          <div className=" w-full md:w-1/2  py-16  rounded-lg border border-gray-100 border-dashed">
             <Image
               src={product.image}
               alt={product.title}
@@ -52,35 +60,21 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2 px-3 py-2  rounded-full">
-                  <Image
-                    src="/assets/icons/red-heart.svg"
-                    alt="heart"
-                    width={20}
-                    height={20}
-                  />
+                <div className="flex items-center gap-2 px-3 py-2  rounded-full cursor-pointer">
+                
+                  <HeartIcon />
 
                   <p className="text-base font-normal text-[#D46F77]">
                     {product.reviewsCount}
                   </p>
                 </div>
 
-                <div className="p-2 bg-white-200 rounded-10 ">
-                  <Image
-                    src="/assets/icons/bookmark.svg"
-                    alt="bookmark"
-                    width={20}
-                    height={20}
-                  />
+                <div className="p-2 bg-white-200 rounded-10 cursor-pointer ">
+                  <Bookmark size={16} strokeWidth={3} />
                 </div>
 
-                <div className="p-2 bg-white-200 rounded-10">
-                  <Image
-                    src="/assets/icons/share.svg"
-                    alt="share"
-                    width={20}
-                    height={20}
-                  />
+                <div className="p-2 bg-white-200 rounded-10 cursor-pointer">
+                  <Share2 size={16} strokeWidth={3} />
                 </div>
               </div>
             </div>
@@ -110,12 +104,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                   </div>
 
                   <div className="flex items-center gap-2 px-3 py-2  rounded-full">
-                    <Image
-                      src="/assets/icons/comment.svg"
-                      alt="comment"
-                      width={16}
-                      height={16}
-                    />
+                    <MessageSquareMore size={16} strokeWidth={3} />
                     <p className="text-sm  font-normal">
                       {product.reviewsCount} Reviews
                     </p>
@@ -123,8 +112,10 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                 </div>
 
                 <p className="text-sm">
-                  <span className=" font-normal">93% </span> of buyers have
-                  recommeded this.
+                  <span className=" font-normal">
+                    {Math.floor(Math.random() * (80 - 40 + 1)) + 40}%{" "}
+                  </span>{" "}
+                  of buyers have recommeded this.
                 </p>
               </div>
             </div>

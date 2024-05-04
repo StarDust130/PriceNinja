@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -48,4 +47,35 @@
     --input: 240 3.7% 15.9%;
     --ring: 346.8 77.2% 49.8%;
   }
+}
+
+/* HeartIcon.css */
+
+.heart-icon-container {
+  display: inline-block;
+  position: relative;
+}
+
+.heart-icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+.animate-heart {
+  animation: pulseHeart 0.8s ease infinite;
+}
+
+@keyframes pulseHeart {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.liked .heart-icon {
+  color: #ff4d4f; /* Red color when liked */
 }
