@@ -8,7 +8,7 @@ const Navbar = () => {
       {/* Left side logo and text */}
       <div className="flex  items-center space-x-2">
         <Link className="text-2xl font-bold " href="/">
-          Price<span className="text-red-500">Wise</span>
+          Price<span className="text-red-500">Ninja</span>
         </Link>
       </div>
 

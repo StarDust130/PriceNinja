@@ -1,18 +1,23 @@
 import Carousels from "@/components/Carousels";
 import Searchbar from "@/components/Searchbar";
+import { getAllProducts } from "@/lib/actions";
 import Image from "next/image";
 
-const Home = () => {
+const Home = async () => {
+  const allProducts = await getAllProducts();
+
   return (
     <>
-      <div className="min-h-screen  flex justify-center items-center mx-auto  ">
+      <section className="min-h-screen  flex justify-center items-center mx-auto  ">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto ">
           {/* Left Section: Introduction */}
           <div className="col-span-2 ">
             <div className="text-center md:text-left ">
               <h4 className="text-6xl md:text-[120px] text-center font-semibold  mb-4">
                 Welcome to Our Price
-                <span className="text-red-500 font-bold  animate-in">Wise</span>
+                <span className="text-red-500 font-bold  animate-in">
+                  Ninja
+                </span>
               </h4>
               <p className="text-lg text-center  mb-6">
                 Explore our exciting courses and start learning today!
@@ -40,7 +45,17 @@ const Home = () => {
             />
           </div>
         </div>
-      </div>
+      </section>
+
+      <section>
+        <h2 className="text-center font-bold text-2xl">Trending</h2>
+
+        <div className="flex flex-wrap gap-x-8 gap-y-16">
+          {allProducts?.map((product, index) => (
+            <div key={index}>{product.title}</div>
+          ))}
+        </div>
+      </section>
     </>
   );
 };
