@@ -19,7 +19,7 @@ export function Theme() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          className="bg-transparent border-none outline-none "
+          className="bg-transparent border-none  "
           variant="outline"
           size="icon"
         >

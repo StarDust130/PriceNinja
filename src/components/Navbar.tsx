@@ -1,6 +1,7 @@
 import { Heart, Search, User } from "lucide-react";
 import Link from "next/link";
 import { Theme } from "./Theme";
+import { Button } from "./ui/button";
 
 const Navbar = () => {
   return (
@@ -15,13 +16,31 @@ const Navbar = () => {
       {/* Right side icons */}
       <div className="flex items-center gap-5">
         <Link href="/">
-          <Search className="w-6 h-6 cursor-pointer  " />
+          <Button
+            className="bg-transparent border-none "
+            variant="outline"
+            size="icon"
+          >
+            <Search className="w-6 h-6 cursor-pointer   " />
+          </Button>
         </Link>
         <Link href="/">
-          <Heart className="w-6 h-6 cursor-pointer " />
+          <Button
+            className="bg-transparent border-none "
+            variant="outline"
+            size="icon"
+          >
+            <Heart className="w-6 h-6 cursor-pointer " />
+          </Button>
         </Link>
         <Link href="/">
-          <User className="w-6 h-6 cursor-pointer " />
+          <Button
+            className="bg-transparent border-none "
+            variant="outline"
+            size="icon"
+          >
+            <User className="w-6 h-6 cursor-pointer " />
+          </Button>
         </Link>
         <Theme />
       </div>
