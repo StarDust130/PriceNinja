@@ -26,7 +26,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
     <>
       <div className=" flex flex-col md:gap-16 md:flex-wrap md:px-20 text-center px-12 sm:px-6 mt-10 mb-20">
         <div className="flex gap-28 w-full md:flex-row flex-col">
-          <div className=" w-full xl:w-1/2  py-16  rounded-lg ">
+          <div className=" w-full xl:w-1/2  md:py-16  rounded-lg ">
             <Image
               src={product.image}
               alt={product.title}
@@ -37,7 +37,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
           </div>
 
           <div className="flex-1 flex flex-col">
-            <div className="flex justify-between items-start gap-5 flex-wrap pb-6">
+            <div className="flex justify-between items-start gap-5 flex-wrap md:pb-6">
               <div className="flex flex-col gap-3">
                 <p className="text-[28px]  font-normal">{product.title}</p>
 
@@ -52,13 +52,11 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                 </Button>
               </div>
 
-              <div className="flex items-center gap-3 text-center">
+              <div className="flex items-center text-2xl w-full justify-center gap-3 text-center">
                 <div className="flex items-center gap-2 px-3 py-2  rounded-full cursor-pointer">
                   <HeartIcon />
 
-                  <p className="text-base font-normal text-[#D46F77]">
-                    {product.reviewsCount}
-                  </p>
+                 
                 </div>
 
                 <div className="p-2 bg-white-200 rounded-10 cursor-pointer ">
@@ -113,7 +111,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
             </div>
 
             <div className="my-7 flex flex-col  gap-5">
-              <div className="flex gap-5 flex-wrap mx-auto text-center items-center ml-10 md:ml-0  ">
+              <div className="flex gap-5 flex-wrap mx-auto text-center items-center ml-12 md:ml-0  ">
                 <PriceInfoCard
                   title="Current Price"
                   iconSrc="/assets/icons/price-tag.svg"
@@ -194,7 +192,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
       </div>
 
       {/* Back Button  */}
-      <Link href="/" className="hidden md:block absolute top-20 left-4 z-50">
+      <Link href="/" className=" absolute top-20 left-4 z-50">
         <Button variant="outline" className="border-none bg-transparent">
           <span className="flex items-center">
             <ChevronLeft className="" />
