@@ -6,8 +6,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Bookmark, ChevronLeft, MessageSquareMore, Share2 } from "lucide-react";
+import { Bookmark, ChevronLeft, Home, MessageSquareMore, Share2 } from "lucide-react";
 import HeartIcon from "@/components/HeartIcon";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+
 
 interface Props {
   params: {
@@ -24,7 +33,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
   return (
     <>
-      <div className=" flex flex-col md:gap-16 md:flex-wrap md:px-20 px-12 sm:px-6 mt-10 mb-20">
+      <div className=" flex flex-col md:gap-16 md:flex-wrap md:px-20 text-center px-12 sm:px-6 mt-10 mb-20">
         <div className="flex gap-28 w-full md:flex-row flex-col">
           <div className=" w-full xl:w-1/2  md:py-16  rounded-lg ">
             <Image
@@ -45,19 +54,19 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                   <Link
                     href={product.url}
                     target="_blank"
-                    className="text-base"
+                    className="text-base text-start"
                   >
                     Visit Product
                   </Link>
                 </Button>
               </div>
 
-              <div className="flex items-center text-2xl w-full justify-start gap-3 text-center">
+              <div className="flex items-center text-2xl w-full justify-center gap-3 text-center mb-5 md:mb-0">
                 <div className="flex items-center gap-2 px-3 py-2  rounded-full cursor-pointer">
                   <HeartIcon />
                 </div>
 
-                <div className="p-2 bg-white-200 rounded-10 cursor-pointer ">
+                <div className="p-2 bg-white-200 rounded-10 cursor-pointer  ">
                   <Button
                     variant={"outline"}
                     className="bg-yellow-300 text-black hover:bg-yellow-400 hover:text-black"
@@ -78,7 +87,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
             </div>
             <hr />
 
-            <div className="flex items-center flex-wrap gap-10 py-6 border-b border-gray-300">
+            <div className="flex items-center text-center w-full justify-center  flex-wrap gap-10 py-6 border-b border-gray-300">
               <div className="flex flex-col gap-2">
                 <p className="text-[34px]  font-normal">
                   {product.currency} {formatNumber(product.currentPrice)}
@@ -102,7 +111,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-2 px-3 py-2  rounded-full">
+                  <div className="flex items-center gap-2 px-3 py-2   rounded-full">
                     <MessageSquareMore size={16} strokeWidth={3} />
                     <p className="text-sm  font-normal">
                       {product.reviewsCount} Reviews
@@ -119,8 +128,8 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               </div>
             </div>
 
-            <div className="my-7 flex flex-col  gap-5">
-              <div className="flex gap-5 flex-wrap mx-auto text-center items-center ml-12 md:ml-0  ">
+            <div className="my-7 flex flex-col  gap-5 items-center justify-center w-full">
+              <div className="flex gap-5 flex-wrap mx-auto text-center justify-center items-center   ">
                 <PriceInfoCard
                   title="Current Price"
                   iconSrc="/assets/icons/price-tag.svg"
@@ -201,14 +210,29 @@ const ProductDetails = async ({ params: { id } }: Props) => {
       </div>
 
       {/* Back Button  */}
-      <Link href="/" className=" absolute top-20 left-4 z-50">
-        <Button variant="outline" className="border-none bg-transparent">
-          <span className="flex items-center">
-            <ChevronLeft className="" />
-            <span className="text-lg ml-2">Back</span>
-          </span>
-        </Button>
-      </Link>
+      <div className="absolute top-20 left-10">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">
+                <Home size={16} strokeWidth={3} />
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>
+                {`${product.title.substring(0, 30)}${
+                  product.title.length > 20 ? "..." : ""
+                }`}
+              </BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
     </>
   );
 };
