@@ -24,7 +24,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
   return (
     <>
-      <div className=" flex flex-col md:gap-16 md:flex-wrap md:px-20 text-center px-12 sm:px-6 mt-10 mb-20">
+      <div className=" flex flex-col md:gap-16 md:flex-wrap md:px-20 px-12 sm:px-6 mt-10 mb-20">
         <div className="flex gap-28 w-full md:flex-row flex-col">
           <div className=" w-full xl:w-1/2  md:py-16  rounded-lg ">
             <Image
@@ -52,22 +52,31 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                 </Button>
               </div>
 
-              <div className="flex items-center text-2xl w-full justify-center gap-3 text-center">
+              <div className="flex items-center text-2xl w-full justify-start gap-3 text-center">
                 <div className="flex items-center gap-2 px-3 py-2  rounded-full cursor-pointer">
                   <HeartIcon />
-
-                 
                 </div>
 
                 <div className="p-2 bg-white-200 rounded-10 cursor-pointer ">
-                  <Bookmark size={16} strokeWidth={3} />
+                  <Button
+                    variant={"outline"}
+                    className="bg-yellow-300 text-black hover:bg-yellow-400 hover:text-black"
+                  >
+                    <Bookmark size={16} strokeWidth={3} />
+                  </Button>
                 </div>
 
                 <div className="p-2 bg-white-200 rounded-10 cursor-pointer">
-                  <Share2 size={16} strokeWidth={3} />
+                  <Button
+                    variant={"outline"}
+                    className="bg-blue-300 text-black hover:bg-blue-400 hover:text-black"
+                  >
+                    <Share2 size={16} strokeWidth={3} />
+                  </Button>
                 </div>
               </div>
             </div>
+            <hr />
 
             <div className="flex items-center flex-wrap gap-10 py-6 border-b border-gray-300">
               <div className="flex flex-col gap-2">

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
+import { Button } from "./ui/button";
 
 const HeartIcon = () => {
   const [liked, setLiked] = useState(false);
@@ -20,8 +21,8 @@ const HeartIcon = () => {
   };
 
   return (
-    <button
-      className={`focus:outline-none heart-icon-container ${
+    <Button
+      className={`focus:outline-none heart-icon-container bg-pink-200 text-black/90 hover:bg-pink-300 ${
         liked ? "liked" : ""
       }`}
       onClick={toggleLike}
@@ -29,13 +30,13 @@ const HeartIcon = () => {
       <span className="flex items-center gap-2">
         <FaHeart
           className={`heart-icon ${liked ? "animate-heart" : ""}`}
-          style={{ animationIterationCount: liked ? "3" : "0" }}
+          style={{ animationIterationCount: liked ? "6" : "0" }}
         />
-        <p className="text-base  text-[#D46F77]">
+        <p className="text-base">
           <span className="">{likeCount}</span>
         </p>
       </span>
-    </button>
+    </Button>
   );
 };
 
