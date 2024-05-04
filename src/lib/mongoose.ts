@@ -5,7 +5,7 @@ let isConnected: boolean = false; // Database connection status
 export const connectToDB = async () => {
   mongoose.set("strictQuery", true);
 
-  if (!process.env.MONGODB_URI) return;
+  if (!process.env.MONGODB_URI) return console.log("=> no MongoDB is not defiend ❌");
 
   if (isConnected) {
     console.log("=> using existing database connection ✅");

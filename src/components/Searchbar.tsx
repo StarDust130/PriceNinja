@@ -5,6 +5,7 @@ import { FormEvent, useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { LoaderIcon } from "lucide-react";
+import { useToast } from "./ui/use-toast";
 
 const isValidAmazonProductURL = (url: string) => {
   try {
@@ -32,19 +33,28 @@ const isValidAmazonProductURL = (url: string) => {
 const Searchbar = () => {
   const [searchPrompt, setSearchPrompt] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const isValidLink = isValidAmazonProductURL(searchPrompt);
 
-    if (!isValidLink) return alert("Please provide a valid Amazon link");
+    if (!isValidLink)
+      return toast({
+        title: "Invalid URL 🚫",
+        description: "Please enter a valid Amazon or Flipkart product URL",
+      });
 
     try {
       setIsLoading(true);
 
       // Scrape the product page
       const product = await scrapeAndStoreProduct(searchPrompt);
+      toast({
+        title: "Product found! ✅",
+        description: `Product has been added to the database. `,
+      });
     } catch (error) {
       console.log(error);
     } finally {

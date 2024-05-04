@@ -3,6 +3,7 @@ import { Jersey_15 } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 
 const jersey_15 =  Jersey_15({
@@ -35,6 +36,7 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
