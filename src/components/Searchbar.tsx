@@ -40,17 +40,20 @@ const Searchbar = () => {
 
     const isValidLink = isValidAmazonProductURL(searchPrompt);
 
-    if (!isValidLink)
+    if (!isValidLink) {
+      setSearchPrompt("");
       return toast({
-        title: "Invalid URL 🚫",
-        description: "Please enter a valid Amazon or Flipkart product URL",
+        title: "Invalid URL ❌",
+        description: "Please enter a valid Amazon or Flipkart product link.",
       });
+    }
 
     try {
       setIsLoading(true);
 
       // Scrape the product page
       const product = await scrapeAndStoreProduct(searchPrompt);
+
       toast({
         title: "Product found! ✅",
         description: `Product has been added to the database. `,
@@ -58,6 +61,7 @@ const Searchbar = () => {
     } catch (error) {
       console.log(error);
     } finally {
+      setSearchPrompt("");
       setIsLoading(false);
     }
   };
