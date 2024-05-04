@@ -15,7 +15,7 @@ const Navbar = () => {
       {/* Right side icons */}
       <div className="flex items-center gap-5">
         <Link href="/">
-          <Search className="w-6 h-6 cursor-pointer " />
+          <Search className="w-6 h-6 cursor-pointer  " />
         </Link>
         <Link href="/">
           <Heart className="w-6 h-6 cursor-pointer " />
