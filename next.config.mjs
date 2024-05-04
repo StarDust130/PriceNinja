@@ -4,7 +4,10 @@ const nextConfig = {
     serverActions: true,
     serverComponentsExternalPackages: ["mongoose"],
   },
-  domains: ["m.media-amazon.com"],
+  images: {
+    domains: ["m.media-amazon.com"], 
+  },
 };
 
 export default nextConfig;
+
