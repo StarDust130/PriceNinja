@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Bookmark, ChevronLeft, Home, MessageSquareMore, Share2 } from "lucide-react";
+import { Bookmark, Home, MessageSquareMore } from "lucide-react";
 import HeartIcon from "@/components/HeartIcon";
 import {
   Breadcrumb,
@@ -16,7 +16,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-
+import Share from "@/components/Share";
 
 interface Props {
   params: {
@@ -75,13 +75,8 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                   </Button>
                 </div>
 
-                <div className="p-2 bg-white-200 rounded-10 cursor-pointer">
-                  <Button
-                    variant={"outline"}
-                    className="bg-blue-300 text-black hover:bg-blue-400 hover:text-black"
-                  >
-                    <Share2 size={16} strokeWidth={3} />
-                  </Button>
+                <div className="p-2  cursor-pointer">
+                  <Share url={`${product.url}`} />
                 </div>
               </div>
             </div>
