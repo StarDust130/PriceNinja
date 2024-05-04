@@ -48,7 +48,7 @@ const Home = async () => {
         </div>
       </section>
 
-      <section>
+      <section className="mb-10">
         <h2 className="text-center font-bold text-2xl">Trending</h2>
 
         <div className="flex flex-wrap gap-x-8 gap-y-16">
