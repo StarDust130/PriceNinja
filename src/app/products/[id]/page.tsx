@@ -6,14 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import {
-  Bookmark,
-  ChevronLeft,
-  Heart,
-  
-  MessageSquareMore,
-  Share2,
-} from "lucide-react";
+import { Bookmark, ChevronLeft, MessageSquareMore, Share2 } from "lucide-react";
 import HeartIcon from "@/components/HeartIcon";
 
 interface Props {
@@ -31,9 +24,9 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
   return (
     <>
-      <div className=" flex flex-col gap-16 md:flex-wrap md:px-20 px-6 mt-10 mb-20">
+      <div className=" flex flex-col md:gap-16 md:flex-wrap md:px-20 text-center px-12 sm:px-6 mt-10 mb-20">
         <div className="flex gap-28 w-full md:flex-row flex-col">
-          <div className=" w-full md:w-1/2  py-16  rounded-lg border border-gray-100 border-dashed">
+          <div className=" w-full xl:w-1/2  py-16  rounded-lg ">
             <Image
               src={product.image}
               alt={product.title}
@@ -59,9 +52,8 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                 </Button>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 text-center">
                 <div className="flex items-center gap-2 px-3 py-2  rounded-full cursor-pointer">
-                
                   <HeartIcon />
 
                   <p className="text-base font-normal text-[#D46F77]">
@@ -120,8 +112,8 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               </div>
             </div>
 
-            <div className="my-7 flex flex-col gap-5">
-              <div className="flex gap-5 flex-wrap">
+            <div className="my-7 flex flex-col  gap-5">
+              <div className="flex gap-5 flex-wrap mx-auto text-center items-center ml-10 md:ml-0  ">
                 <PriceInfoCard
                   title="Current Price"
                   iconSrc="/assets/icons/price-tag.svg"
