@@ -4,11 +4,11 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import Footer from "@/components/Footer";
 
-
-const jersey_15 =  Jersey_15({
+const jersey_15 = Jersey_15({
   subsets: ["latin"],
-  weight: "400"
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -18,7 +18,6 @@ export const metadata: Metadata = {
     icon: "https://img.icons8.com/office/16/fire-element--v1.png",
   },
 };
-
 
 export default function RootLayout({
   children,
@@ -36,6 +35,7 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
+          <Footer />
           <Toaster />
         </ThemeProvider>
       </body>

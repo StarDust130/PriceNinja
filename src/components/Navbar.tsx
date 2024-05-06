@@ -14,7 +14,7 @@ const Navbar = () => {
       </div>
 
       {/* Right side icons */}
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-2 md:gap-5">
         <Link href="/">
           <Button
             className="bg-transparent border-none "

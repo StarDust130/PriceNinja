@@ -79,3 +79,7 @@
 .liked .heart-icon {
   color: #ff4d4f; /* Red color when liked */
 }
+
+body{
+  scroll-behavior: smooth;
+}
