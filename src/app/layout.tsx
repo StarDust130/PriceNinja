@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 const jersey15 = Jersey_15({
   subsets: ["latin"],
   weight: "400",
-}); // Assuming Jersey15 is a Google Font
+});
 
 export const metadata: Metadata = {
   title: "PriceNinja",
