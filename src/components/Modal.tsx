@@ -15,8 +15,23 @@ import Link from "next/link";
 import { Input } from "./ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "./ui/button";
+import { LoaderIcon, MailPlus, X } from "lucide-react";
+import { useState } from "react";
 
 const Modal = () => {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // await  addUserEmailToProduct(productId , email);
+
+    setIsSubmitting(false);
+    setEmail("");
+  };
+
   return (
     <>
       <AlertDialog>
@@ -37,12 +52,32 @@ const Modal = () => {
           </AlertDialogHeader>
           <AlertDialogDescription>
             <Label htmlFor="email">Email address</Label>
-            <Input type="email" id="email" placeholder="Email" />
+            <span className="flex items-center justify-center gap-2">
+              <MailPlus size={35} />
+              <Input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                id="email"
+                placeholder="Email"
+              />
+            </span>
           </AlertDialogDescription>
           <AlertDialogFooter>
-            {/* <AlertDialogCancel>Cancel</AlertDialogCancel> */}
+            <AlertDialogCancel className="absolute top-5 right-5 ">
+              <X size={20} />
+            </AlertDialogCancel>
             <AlertDialogAction>
-              <Button>Track Product</Button>
+              <Button onClick={handleSubmit}>
+                {isSubmitting ? (
+                  <span className="flex items-center">
+                    Searching...
+                    <LoaderIcon className="animate-spin w-5 h-5 ml-1" />
+                  </span>
+                ) : (
+                  "Track Product"
+                )}
+              </Button>
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
