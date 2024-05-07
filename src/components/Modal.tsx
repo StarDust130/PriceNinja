@@ -30,7 +30,20 @@ const Modal = ({ productId }: Props) => {
   const { toast } = useToast();
 
   const handleSubmit = async (e: any) => {
-    email === "" && toast({ title: "Email is required 😱" });
+    if(email === "") return toast({ title: "Email is Required 😝" });
+
+    const validateEmail = (email : string) => {
+      // Regular expression for basic email validation
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email);
+    };
+
+    if (!validateEmail(email)) {
+      toast({ title: "Invalid email address 😱" });
+      return;
+    }
+    
+
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -83,18 +96,20 @@ const Modal = ({ productId }: Props) => {
             <AlertDialogCancel className="absolute top-5 right-5 hover:bg-accent rounded-full py-1 px-1 ">
               <X size={20} />
             </AlertDialogCancel>
-            <AlertDialogAction>
-              <Button onClick={handleSubmit}>
-                {isSubmitting ? (
-                  <span className="flex items-center">
-                    Searching...
-                    <LoaderIcon className="animate-spin w-5 h-5 ml-1" />
-                  </span>
-                ) : (
-                  "Track Product"
-                )}
-              </Button>
-            </AlertDialogAction>
+            <AlertDialogCancel onClick={handleSubmit}>
+              <div>
+                <Button>
+                  {isSubmitting ? (
+                    <span className="flex items-center">
+                      Searching...
+                      <LoaderIcon className="animate-spin w-5 h-5 ml-1" />
+                    </span>
+                  ) : (
+                    "Track Product"
+                  )}
+                </Button>
+              </div>
+            </AlertDialogCancel>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
