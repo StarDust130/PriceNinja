@@ -2,7 +2,6 @@
 
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
@@ -10,6 +9,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
+  AlertDialogAction
 } from "@/components/ui/alert-dialog";
 import Link from "next/link";
 import { Input } from "./ui/input";
@@ -18,6 +18,7 @@ import { Button } from "./ui/button";
 import { LoaderIcon, MailPlus, X } from "lucide-react";
 import { useState } from "react";
 import { addUserEmailToProduct } from "@/lib/actions";
+import { useToast } from "./ui/use-toast";
 
 interface Props {
   productId: string;
@@ -26,12 +27,20 @@ interface Props {
 const Modal = ({ productId }: Props) => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = async (e: any) => {
+    email === "" && toast({ title: "Email is required 😱" });
     e.preventDefault();
     setIsSubmitting(true);
 
     await addUserEmailToProduct(productId, email);
+
+    email !== "" &&
+      toast({
+        title: "Product Tracked! 🎉",
+        description: "You will receive an email when the price drops.",
+      });
 
     setIsSubmitting(false);
     setEmail("");
@@ -41,7 +50,7 @@ const Modal = ({ productId }: Props) => {
     <>
       <AlertDialog>
         <AlertDialogTrigger className="bg-primary rounded-lg px-2 py-2 hover:bg-primary/90  my-10">
-         Track Product
+          Track Product
         </AlertDialogTrigger>
         <AlertDialogContent>
           <div className="flex  items-center space-x-2">
@@ -71,7 +80,7 @@ const Modal = ({ productId }: Props) => {
             </span>
           </AlertDialogDescription>
           <AlertDialogFooter>
-            <AlertDialogCancel className="absolute top-5 right-5 ">
+            <AlertDialogCancel className="absolute top-5 right-5 hover:bg-accent rounded-full py-1 px-1 ">
               <X size={20} />
             </AlertDialogCancel>
             <AlertDialogAction>

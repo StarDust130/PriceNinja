@@ -101,6 +101,7 @@ export async function addUserEmailToProduct(
     const product = await Product.findById(productId);
 
     if (!product) return;
+    if (!userEmail) return;
 
     const userExists = product.users.some(
       (user: User) => user.email === userEmail
@@ -119,5 +120,3 @@ export async function addUserEmailToProduct(
     console.log(error);
   }
 }
-
-
