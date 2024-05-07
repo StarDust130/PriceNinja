@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jersey+15&display=swap");
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -80,6 +80,9 @@
   color: #ff4d4f; /* Red color when liked */
 }
 
-body{
-  scroll-behavior: smooth;
+.jersey-15-regular {
+  font-family: "Jersey 15", serif;
+  font-weight: 400;
+  font-style: normal;
 }
+

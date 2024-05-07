@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Jersey_15 } from "next/font/google";
+// import { Jersey_15 } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import Footer from "@/components/Footer";
 
-const jersey15 = Jersey_15({
-  subsets: ["latin"],
-  weight: "400",
-});
+// const jersey15 = Jersey_15({
+//   subsets: ["latin-ext"],
+//   weight: "400",
+// });
 
 export const metadata: Metadata = {
   title: "PriceNinja",
@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={jersey15.className}>
+      <body >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -9,7 +9,7 @@ const Home = async () => {
   const allProducts = await getAllProducts();
 
   return (
-    <>
+    <section className="jersey-15-regular">
       <section className="min-h-screen  flex justify-center items-center mx-auto  ">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto ">
           {/* Left Section: Introduction */}
@@ -21,7 +21,7 @@ const Home = async () => {
                   Ninja
                 </span>
               </h4>
-              <p className="text-lg text-center  mb-6">
+              <p className="text-lg text-center jersey-15-regular  mb-6">
                 Explore our exciting courses and start learning today!
               </p>
               <Searchbar />
@@ -58,7 +58,7 @@ const Home = async () => {
           ))}
         </div>
       </section>
-    </>
+    </section>
   );
 };
 export default Home;
