@@ -6,10 +6,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import Footer from "@/components/Footer";
 
-const jersey_15 = Jersey_15({
+const jersey15 = Jersey_15({
   subsets: ["latin"],
   weight: "400",
-});
+}); // Assuming Jersey15 is a Google Font
 
 export const metadata: Metadata = {
   title: "PriceNinja",
@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={jersey_15.className}>
+      <body className={jersey15.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
