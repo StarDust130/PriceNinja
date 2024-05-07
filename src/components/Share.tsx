@@ -27,8 +27,7 @@ import {
   TelegramShareButton,
   XIcon,
 } from "react-share";
-import { Button } from "./ui/button";
-import { Share2, X } from "lucide-react";
+import { Share2 } from "lucide-react";
 
 const Share = ({ url }: any) => {
   return (

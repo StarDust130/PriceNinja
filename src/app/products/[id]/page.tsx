@@ -17,6 +17,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import Share from "@/components/Share";
+import Modal from "@/components/Modal";
 
 interface Props {
   params: {
@@ -155,8 +156,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                 />
               </div>
             </div>
-
-            {/* <Modal productId={id} /> */}
+            <Modal />
           </div>
         </div>
 
