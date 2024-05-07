@@ -13,10 +13,10 @@ const HeartIcon = () => {
     setLiked(!liked);
 
     if (!liked) {
-      setLikeCount((prevCount) => prevCount - 1);
+      setLikeCount((prevCount) => prevCount + 1);
     } else {
       // Decrement like count when unliking
-      setLikeCount((prevCount) => prevCount + 1);
+      setLikeCount((prevCount) => prevCount - 1);
     }
   };
 
@@ -30,7 +30,7 @@ const HeartIcon = () => {
       <span className="flex items-center gap-2">
         <FaHeart
           className={`heart-icon ${liked ? "animate-heart" : ""}`}
-          style={{ animationIterationCount: liked ? "6" : "0" }}
+          style={{ animationIterationCount: liked ? "10" : "0" }}
         />
         <p className="text-base">
           <span className="">{likeCount}</span>
