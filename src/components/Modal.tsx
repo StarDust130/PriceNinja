@@ -40,7 +40,9 @@ const Modal = ({ productId }: Props) => {
   return (
     <>
       <AlertDialog>
-        <AlertDialogTrigger>Open</AlertDialogTrigger>
+        <AlertDialogTrigger className="bg-primary rounded-lg px-2 py-2 hover:bg-primary/90  my-10">
+         Track Product
+        </AlertDialogTrigger>
         <AlertDialogContent>
           <div className="flex  items-center space-x-2">
             <Link className="text-2xl font-bold " href="/">
