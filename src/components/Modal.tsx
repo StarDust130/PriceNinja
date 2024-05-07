@@ -17,8 +17,13 @@ import { Label } from "@/components/ui/label";
 import { Button } from "./ui/button";
 import { LoaderIcon, MailPlus, X } from "lucide-react";
 import { useState } from "react";
+import { addUserEmailToProduct } from "@/lib/actions";
 
-const Modal = () => {
+interface Props {
+  productId: string;
+}
+
+const Modal = ({ productId }: Props) => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -26,7 +31,7 @@ const Modal = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // await  addUserEmailToProduct(productId , email);
+    await addUserEmailToProduct(productId, email);
 
     setIsSubmitting(false);
     setEmail("");

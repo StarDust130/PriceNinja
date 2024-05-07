@@ -13,7 +13,7 @@ const jersey_15 = Jersey_15({
 
 export const metadata: Metadata = {
   title: "PriceNinja",
-  description: "Price Wise is a price comparison website.",
+  description: "PriceNinja is a price comparison website.",
   icons: {
     icon: "https://img.icons8.com/office/16/fire-element--v1.png",
   },
