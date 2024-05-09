@@ -1,11 +1,5 @@
 # Price Ninja 🛍️📉💌
 
-Welcome to Price Ninja, your ultimate shopping companion for finding the best deals on Amazon products! 🎉
-
-![Price Ninja](/public/banner.png)
-
-Welcome to Price Ninja, your ultimate shopping companion for finding the best deals on Amazon products! 🎉
-
 ![Price Ninja](/public/banner.png)
 
 Price Ninja is a powerful web application built with Next.js, React, Tailwind CSS, TypeScript, MongoDB, Nodemailer, Axios, and Mongoose. It scrapes Amazon product data, displays it in a user-friendly interface, and notifies users via email when prices drop.
