@@ -7,7 +7,6 @@ Welcome to Price Ninja, your ultimate shopping companion for finding the best de
 Price Ninja is a powerful web application built with Next.js, React, Tailwind CSS, TypeScript, MongoDB, Nodemailer, Axios, and Mongoose. It scrapes Amazon product data, displays it in a user-friendly interface, and notifies users via email when prices drop.
 
 
-
 ## [SEE LIVE](https://price-ninja-stardust.vercel.app)  🌐
 Visit [Price Ninja Live](https://price-ninja-stardust.vercel.app) to experience the application in action! 🚀
 
