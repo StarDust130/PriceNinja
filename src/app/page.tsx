@@ -37,14 +37,6 @@ const Home = async () => {
           {/* Right Section: Course Carousel */}
           <div className="col-span-1 relative">
             <Carousels />
-            <Image
-              src="/assets/icons/hand-drawn-arrow.svg"
-              alt="arrow"
-              width={231}
-              height={222}
-              property="arrow"
-              className="max-xl:hidden absolute -left-[25%] bottom-0 z-0"
-            />
           </div>
         </div>
       </section>
